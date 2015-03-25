@@ -2,6 +2,7 @@
  * Created by Yannick Bachteler on 24.03.15.
  * Version 0.1, 24.03.2015: Inital load of pictures
  * Version 0.2, 25.03.2015: Detection of pressed keys and double click
+ * Version 0.3, 25.03.2015: Rotate implemented
  */
 
 "use strict";   // use mode strict code

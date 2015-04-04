@@ -7,17 +7,20 @@
 
 "use strict";   // use mode strict code
 
-var images = ["0-zero", "15-fifteen", "30-thirty", "45-fourtyfive", "60-sixty", "75-seventyfive", "90-ninty", "105-onefive", "120-onetwenty", "135-onethirtyfive", "150-onefifty", "165-onesixtyfive", "180-oneeighty", "195-oneninetyfive", "210-twoten", "225-twotwentyfive", "240-twofourty", "255-twofiftyfive", "270-twoseventy", "285-twoeightyfive", "300-threehundret", "315-threefifteen", "330-threethirty", "345-threefourtyfive", "360-threesixty"];
+var images = ["0-zero", "15-fifteen", "30-thirty", "45-fourtyfive", "60-sixty", "75-seventyfive", "90-ninty", "105-onefive", "120-onetwenty", "135-onethirtyfive", "150-onefifty", "165-onesixtyfive", "180-oneeighty", "195-oneninetyfive", "210-twoten", "225-twotwentyfive", "240-twofourty", "255-twofiftyfive", "270-twoseventy", "285-twoeightyfive", "300-threehundret", "315-threefifteen", "330-threethirty", "345-threefourtyfive"];
+//var path = "images_placeholder/";
+var path = "images/";
+var state = '0';
 
 /**
  * Function called when HTML side is called
- * preparation to call function to load and set unages
+ * preparation to call function to load and set images
  */
 var initialLoad = function() {
     var i = 0;
     var tmp = "";
 
-    for(i = 0; i<= 24; i++) {
+    for(i = 0; i<= 23; i++) {
         tmp = images[i];
         loadImage(tmp, i)
     }
@@ -33,8 +36,86 @@ function loadImage(filename, x) {
     imageObj.onload = function() {
         var img = document.getElementById('pos-' + x);
         img.setAttribute('src', this.src);
+
+        /*
+        switch (filename) {
+            case ('0-zero'):
+                img.className = '_0';
+                break;
+            case ('15-fifteen'):
+                img.className = '_15';
+                break;
+            case ('30-thirty'):
+                img.className = '_30';
+                break;
+            case ('45-fourtyfive'):
+                img.className = '_45';
+                break;
+            case ('60-sixty'):
+                img.className = '_60';
+                break;
+            case ('75-seventyfive'):
+                img.className = '_75';
+                break;
+            case ('90-ninty'):
+                img.className = '_90';
+                break;
+            case ('105-onefive'):
+                img.className = '_105';
+                break;
+            case ('120-onetwenty'):
+                img.className = '_120';
+                break;
+            case ('135-onethirtyfive'):
+                img.className = '_135';
+                break;
+            case ('150-onefifty'):
+                img.className = '_150';
+                break;
+            case ('165-onesixtyfive'):
+                img.className = '_165';
+                break;
+            case ('180-oneeighty'):
+                img.className = '_180';
+                break;
+            case ('195-oneninetyfive'):
+                img.className = '_195';
+                break;
+            case ('210-twoten'):
+                img.className = '_210';
+                break;
+            case ('225-twotwentyfive'):
+                img.className = '_225';
+                break;
+            case ('240-twofourty'):
+                img.className = '_240';
+                break;
+            case ('255-twofiftyfive'):
+                img.className = '_255';
+                break;
+            case ('270-twoseventy'):
+                img.className = '_270';
+                break;
+            case ('285-twoeightyfive'):
+                img.className = '_285';
+                break;
+            case ('300-threehundret'):
+                img.className = '_300';
+                break;
+            case ('315-threefifteen'):
+                img.className = '_315';
+                break;
+            case ('330-threethirty'):
+                img.className = '_330';
+                break;
+            case ('345-threefourtyfive'):
+                img.className = '_345';
+                break;
+        }
+        */
+
     };
-    imageObj.src = "images/" + filename + ".png";
+    imageObj.src = path + filename + ".png";
 }
 
 
@@ -146,19 +227,19 @@ var rotate = (function() {
     function right() {
         var firstItem = images[0];
         var tmp = "";
-        for(var x = 0; x < 24; x++) {
+        for(var x = 0; x < 23; x++) {
             images[x] = images[x+1];
             tmp = images[x];
             loadImage(tmp, x);
         }
-        images[24] = firstItem;
-        loadImage(firstItem, 24);
+        images[23] = firstItem;
+        loadImage(firstItem, 23);
     }
 
     function left() {
-        var lastItem = images[24];
+        var lastItem = images[23];
         var tmp = "";
-        for(var x = 24; x > 0; x--) {
+        for(var x = 23; x > 0; x--) {
             images[x] = images[x-1];
             tmp = images[x];
             loadImage(tmp, x);

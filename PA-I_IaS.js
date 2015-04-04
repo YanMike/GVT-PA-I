@@ -3,6 +3,7 @@
  * Version 0.1, 24.03.2015: Inital load of pictures
  * Version 0.2, 25.03.2015: Detection of pressed keys and double click
  * Version 0.3, 25.03.2015: Rotate implemented
+ * Version 0.4, 04.04.2015: final pictures and example for status based rotation
  */
 
 "use strict";   // use mode strict code
